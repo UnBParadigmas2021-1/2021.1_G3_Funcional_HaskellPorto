@@ -7,7 +7,7 @@ import Airports
 
 main = do
     putStrLn "##################################"
-    putStrLn "# Escolha, uma opção:            #"
+    putStrLn "# Escolha uma opção:             #"
     putStrLn "# 1 - Listar aeroports           #"
     putStrLn "# 2 - Verificar menor distância  #"
     putStrLn "# 3 - Encerrar programa          #"
@@ -18,6 +18,7 @@ main = do
         "2" -> findShortestPath
         "3" -> putStrLn "Fim do Programa"
 
+-- find shortest path between two airports
 findShortestPath = do
     putStrLn "Digite a origem:"
     origemStr <- getLine
@@ -26,8 +27,16 @@ findShortestPath = do
     txt <- readFile "arquivo.csv"
     let nos = fromText txt False
     let origem = dijkstra nos origemStr
-    print (caminho origem destinoStr)
+    prettyPrintShortestPath (caminho origem destinoStr) ""
     main
+
+-- format airports path output
+prettyPrintShortestPath [x] acc = do 
+    putStrLn "Menor caminho:"
+    putStrLn (acc ++ x)
+prettyPrintShortestPath (x:xs) acc = do
+    let nacc = acc ++ x ++ " => "
+    prettyPrintShortestPath xs nacc
 
 showAirports = do
     listAirports
