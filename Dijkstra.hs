@@ -36,15 +36,13 @@ fromList es =
         in map (\((_,n),wt) -> Edge n wt) connected 
   in map (\n -> (n, aresta es n)) nodes
 
--- Setando os Pesos nos nós
 aresta :: Graph -> Node -> [Edge]
 aresta g n = snd . head . filter (\(nd, _) -> nd == n) $ g
 
--- Given a node and a list of edges, one of which is incident on the node, return the weight
+-- Setando os Pesos nos nós
 peso :: Node -> [Edge] -> Float
 peso n = weight . head . filter (\e -> n == node e)
 
--- Given a list of edges, return their nodes
 connectedNodes :: [Edge] -> [Node]
 connectedNodes = map node
 
