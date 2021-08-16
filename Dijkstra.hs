@@ -68,3 +68,29 @@ initD g start =
              then peso start es
              else 1.0/0.0
   in map (\pr@(n, _) -> (n, ((initDist pr), start))) g
+  
+  -- Dijkstra's algoritmo
+dijkstra' :: Graph -> [Dnode] -> [Node] -> [Dnode]
+dijkstra' g dnodes [] = dnodes
+dijkstra' g dnodes unchecked = 
+  let dunchecked = filter (\dn -> (fst dn) `elem` unchecked) dnodes
+      current = head . sortBy (\(_,(d1,_)) (_,(d2,_)) -> compare d1 d2) $ dunchecked
+      c = fst current
+      unchecked' = delete c unchecked
+      edges = aresta g c
+      cnodes = intersect (connectedNodes edges) unchecked'
+      dnodes' = map (\dn -> update dn current cnodes edges) dnodes
+  in dijkstra' g dnodes' unchecked' 
+
+-- update melhor pontuação baseando-se no peso
+update :: Dnode -> Dnode -> [Node] -> [Edge] -> Dnode
+update dn@(n, (nd, p)) (c, (cd, _)) cnodes edges =
+  let wt = peso n edges
+  in  if n `notElem` cnodes then dn
+      else if cd+wt < nd then (n, (cd+wt, c)) else dn
+
+-- retorna o melhor caminho a partir do dikstra gerado
+caminho :: [Dnode] -> Node -> [Node]
+caminho dnodes dest = 
+  let dn@(n, (d, p)) = dnodeForNode dnodes dest
+  in if n == p then [n] else caminho dnodes p ++ [n]
