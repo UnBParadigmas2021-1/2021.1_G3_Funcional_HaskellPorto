@@ -1,14 +1,4 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-
-# NomeDoProjeto
+# Haskell Porto
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
 **Nro do Grupo**: 3<br>
@@ -19,9 +9,11 @@ Paradigmas:
 | -- | -- |
 | 17/0138551  |  Bruno Henrique  |
 | 17/0033112  |  Eugênio Sales |
+| 14/0133305  |  Caio Nunes |
+| 15/0059329  |  Wallacy Braz|
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
+Sistema desenvolvido em linguagem funcional (Haskell) que permite encontrar o menor caminho entre dois aeroportos presentes em um dataset. 
 
 ## Screenshots
 ![passo a passo](https://imgur.com/p5mLmY4.png)
@@ -29,33 +21,17 @@ Descreva o seu projeto em linhas gerais.
 
 **Linguagens**: Haskell<br>
 **Tecnologias**: <br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+`ghci`
 
 ## Uso 
 > Digite no Terminal `ghci`
 
 * Carregue o Arquivo
-> 2 `:load Dijkstra.hs`
+> 2 `:load main.hs`
 
-* Leitura do Dataset
-> 3 `txt <- readFile "arquivo.csv"`
-
-* Estabelecendo os nós a partir do dataset
-> 4 `let nos = fromText txt False`
-
-* Nó inicial
-> 5 `let de_local = dijkstra nos "NomeLocal"`
-
-* Retorno do caminho solicitado
-> 6 `caminho de_local "NomeDestino"`
-
+* Execute o programa
+> 2 `main`
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
+Vídeo disponível no próprio repositório
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
-
-## Fontes
-Caso utilize materiais de terceiros, referencie-os adequadamente.
