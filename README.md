@@ -16,7 +16,9 @@
 Sistema desenvolvido em linguagem funcional (Haskell) que permite encontrar o menor caminho entre dois aeroportos presentes em um dataset. 
 
 ## Screenshots
-![passo a passo](https://imgur.com/p5mLmY4.png)
+![Passo ](https://user-images.githubusercontent.com/26303209/129645647-38aea2a8-7a5c-4372-b1b0-aaa86bf699c4.png)
+
+
 ## Instalação 
 
 **Linguagens**: Haskell<br>
